@@ -1,0 +1,221 @@
+
+<html>
+
+  <head>
+    <h1>
+      Dice
+    </h1>
+    <style>
+      .button {
+        background-color: Tomato;
+        border: none;
+        color: black;
+        text-align: center;
+        font-size: 16px;
+        padding: 8px 10px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <canvas id="myCanvas" width="250" height="200" style="background-color: powderblue"></canvas> <br> <br>
+    <input type="button" class="button" value="Roll Dice" id="btn" onClick="combo()">
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      function drawDice() {
+        ctx.rect(100, 80, 50, 50);
+        ctx.fillStyle = "White"
+        ctx.fill();
+      }
+
+
+      function draw1() {
+        ctx.beginPath();
+        ctx.arc(125, 105, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //centre
+      }
+      //draw1();
+
+      function draw2() {
+        ctx.beginPath();
+        ctx.arc(110, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(140, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-right corner
+      }
+      //draw2();
+
+      function draw3() {
+        ctx.beginPath();
+        ctx.arc(125, 105, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //centre
+
+        ctx.beginPath();
+        ctx.arc(110, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-left corner
+
+        ctx.beginPath();
+        ctx.arc(140, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //upper-right corner
+
+      }
+      //draw3();
+
+      function draw4() {
+        ctx.beginPath();
+        ctx.arc(140, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-right corner
+
+        ctx.beginPath();
+        ctx.arc(110, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //upper-left corner
+
+        ctx.beginPath();
+        ctx.arc(110, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-left corner
+
+        ctx.beginPath();
+        ctx.arc(140, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //upper-right corner
+      }
+      //draw4();
+
+      function draw5() {
+        ctx.beginPath();
+        ctx.arc(140, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-right corner
+
+        ctx.beginPath();
+        ctx.arc(110, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //upper-left corner
+
+        ctx.beginPath();
+        ctx.arc(110, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-left corner
+
+        ctx.beginPath();
+        ctx.arc(140, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //upper-right corner
+
+        ctx.beginPath();
+        ctx.arc(125, 105, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //centre
+      }
+      //draw5();
+
+      function draw6() {
+        ctx.beginPath();
+        ctx.arc(140, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-right corner
+
+        ctx.beginPath();
+        ctx.arc(110, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //upper-left corner
+
+        ctx.beginPath();
+        ctx.arc(110, 120, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //lower-left corner
+
+        ctx.beginPath();
+        ctx.arc(140, 90, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //upper-right corner
+
+        ctx.beginPath();
+        ctx.arc(110, 105, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //left-centre
+
+        ctx.beginPath();
+        ctx.arc(140, 105, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "Black";
+        ctx.fill();
+        ctx.closePath(); //right-centre
+      }
+      //draw6();
+
+
+      //Decides which circle to draw.
+      function draw(num_circle) {
+        drawDice();
+        switch (num_circle) {
+          case 1:
+            draw1();
+            break;
+          case 2:
+            draw2();
+            break;
+          case 3:
+            draw3();
+            break;
+          case 4:
+            draw4();
+            break;
+          case 5:
+            draw5();
+            break;
+          case 6:
+            draw6();
+            break;
+        }
+      }
+
+      //The main function.
+      function combo() {
+       var dispNum = Math.ceil(Math.random() * 10);
+       if (dispNum > 0 && dispNum < 7) {
+         draw(dispNum);
+       }
+       else {
+         combo();
+       }
+     }
+
+
+    </script>
+  </body>
+
+</html>
